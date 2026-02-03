@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DM Notes</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo">DM</div>
+        <div class="titleblock">
+          <input id="campaignNameInput" class="campaignTitleInput" value="Untitled Campaign" />
+          <div class="s"><span id="systemName">D&D 5e</span> • local-first notes</div>
+        </div>
+      </div>
+
+      <div class="searchbar">
+        <div class="searchwrap">
+          <div class="hint">⌕</div>
+          <input id="searchInput" class="input" placeholder="Search title, tags, content..." />
+        </div>
+        <button class="btn primary" id="newBtn">＋ New</button>
+        <button class="btn" id="exportBtn">Export</button>
+        <button class="btn" id="importBtn">Import</button>
+        <input type="file" id="importFile" class="fileInput" accept="application/json" />
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="grid">
+      <!-- Sidebar -->
+      <section class="card">
+        <div class="head">
+          <div class="headTitle">Sections</div>
+          <button class="btn small" id="resetBtn" title="Reset demo data">Reset</button>
+        </div>
+        <div class="body">
+          <div class="tabs" id="tabs"></div>
+
+          <div class="divider"></div>
+
+          <div class="row space">
+            <div class="mini muted strong">Tags</div>
+            <button class="btn small" id="clearTagBtn">Clear</button>
+          </div>
+          <div class="spacer-10"></div>
+          <div class="row wrap" id="tagPills"></div>
+
+          <div class="divider"></div>
+
+          <div class="hintBox">
+            Tip: link notes with <span class="k">[[Title]]</span>.<br/>
+            Example: <span class="k">[[Captain Merrow]]</span> or <span class="k">[[Town of Ashford]]</span>.
+
+          </div>
+
+          <div class="spacer-12"></div>
+
+          <div class="hintBox">
+            Everything is stored in your browser (localStorage).<br/>
+            Export occasionally if you care about your campaign.
+          </div>
+        </div>
+      </section>
+
+      <!-- List -->
+      <section class="card">
+        <div class="head">
+          <div>
+            <div class="headTitle" id="listTitle">Upcoming</div>
+            <div class="mini muted" id="listCount">0 note(s)</div>
+          </div>
+          <div class="mini muted" id="tagFilterLabel"></div>
+        </div>
+        <div class="body">
+          <div class="list" id="noteList"></div>
+        </div>
+      </section>
+
+      <!-- Editor -->
+      <section class="card">
+        <div class="head">
+          <div class="headTitle">Editor</div>
+          <div class="mini muted" id="updatedLabel"></div>
+        </div>
+        <div class="body" id="editorArea">
+          <div class="hintBox">Select a note, or click <b>New</b>.</div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <footer>
+    Minimal DM Notes • offline-ish • no accounts • no problems
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
